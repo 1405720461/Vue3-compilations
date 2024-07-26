@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <h1>About</h1>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    <router-view></router-view>
-  </div>
+  <div class="">123</div>
 </template>
 
 <script setup lang="ts">

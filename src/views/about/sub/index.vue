@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h1>About</h1>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    <router-view></router-view>
+    <h1>关于子页面sub</h1>
   </div>
 </template>
 
