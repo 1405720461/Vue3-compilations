@@ -1,3 +1,9 @@
+//   <!-- 默认拖拽参照为body -->
+//   <div v-drag>拖拽元素</div>
+
+//   <!-- 指定参照元素为id为"container"的元素 -->
+//   <div v-drag="'#container'">拖拽元素相对于容器</div>
+
 import type { DirectiveBinding } from "vue";
 
 type Vector = [number, number]; //向量
@@ -140,9 +146,3 @@ export default {
     }
   },
 };
-
-//   <!-- 默认拖拽参照为body -->
-//   <div v-drag>拖拽元素</div>
-
-//   <!-- 指定参照元素为id为"container"的元素 -->
-//   <div v-drag="'#container'">拖拽元素相对于容器</div>
