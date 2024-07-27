@@ -9,6 +9,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElPopover: typeof import('element-plus/es')['ElPopover']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     FloatingMenu: typeof import('./components/FloatingMenu.vue')['default']
     Header: typeof import('./components/Header.vue')['default']
     IEpEdit: typeof import('~icons/ep/edit')['default']

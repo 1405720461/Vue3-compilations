@@ -4,8 +4,7 @@
   <el-button type="primary">Primary</el-button>
   <el-icon :size="20">
     <i-ep-edit />
-  </el-icon>
-  <svg-icon iconName="icon-caidan" className="menu"></svg-icon> -->
+  </el-icon> -->
 </template>
 
 <script setup lang="ts"></script>

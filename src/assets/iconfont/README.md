@@ -2,15 +2,16 @@
 
 以下是本项目中使用的字体图标名称及其对应的类名：
 
-| 图标名称 | 类名                |
-| -------- | ------------------- |
-| 回到顶部 | `icon-huidaodingbu` |
-| 菜单     | `icon-caidan`       |
-| 左       | `icon-zuo`          |
-| 下       | `icon-xia`          |
-| 右       | `icon-you-`         |
-| 上       | `icon-shang-`       |
-| ...      | ...                 |
+| 图标名称 | 类名               |
+| -------- | ------------------ |
+| 回到顶部 | `icon-toTop`       |
+| 菜单     | `icon-menu`        |
+| 菜单折叠 | `icon-menu-unfold` |
+| 左       | `icon-left`        |
+| 下       | `icon-down`        |
+| 右       | `icon-right`       |
+| 上       | `icon-up`          |
+| ...      | ...                |
 
 ## 使用方法
 

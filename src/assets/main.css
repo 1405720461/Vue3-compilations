@@ -6,7 +6,7 @@
     background-color: #f5f5f5;
     min-height: 100vh;
     color: #333333;
+    overflow: hidden;
     box-sizing: border-box;
-    overflow-y: auto;
     text-rendering: optimizeLegibility;
 }
