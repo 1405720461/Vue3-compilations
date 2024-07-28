@@ -1,4 +1,4 @@
 export default {
-  title: "首页",
-  menuOrder: 1,
+  title: "联系",
+  menuOrder: 3,
 };

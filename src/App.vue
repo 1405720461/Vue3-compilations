@@ -1,10 +1,10 @@
 <template>
+  <Floating></Floating>
   <RouterView />
-  <FloatingMenu></FloatingMenu>
 </template>
 
 <script setup lang="ts">
-import FloatingMenu from "@/components/FloatingMenu.vue";
+import Floating from "@/components/Floating.vue";
 </script>
 
 <style scoped></style>

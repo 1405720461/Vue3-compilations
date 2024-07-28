@@ -4,12 +4,14 @@
     class="absolute translate-x-20 translate-y-20"
     @mousedown="handleMouseDown"
     @mouseup="handleMouseUp"
+    v-click-outside="onClickOutside"
   >
     <el-popover
       placement="bottom-start"
       :width="200"
       :show-arrow="false"
-      :visible="visible"
+      :visible="showPopover"
+      ref="popoverRef"
     >
       <template #reference>
         <div
@@ -18,30 +20,32 @@
         >
           <svg-icon
             iconName="icon-menu"
-            :class="{ rotate: shouldRotate }"
+            :class="{ rotate: showPopover }"
             className="menu-icon"
           ></svg-icon>
         </div>
       </template>
-      <div class="">123</div>
+      <Menu></Menu>
     </el-popover>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onUnmounted } from "vue";
+import { ClickOutside as vClickOutside } from "element-plus";
+import Menu from "./Menu.vue";
 
-const visible = ref(false); //菜单状态
-const _visible = ref(false); //记录菜单点击之前的状态
+const popoverRef = ref(null);
+const showPopover = ref(false); //菜单状态
+const _showPopover = ref(false); //记录菜单点击之前的状态
 const startX = ref(0);
 const startY = ref(0);
-const shouldRotate = ref(false); //图标旋转状态
 
 const handleMouseDown = (e: MouseEvent) => {
-  _visible.value = visible.value;
+  _showPopover.value = showPopover.value;
   startX.value = e.pageX;
   startY.value = e.pageY;
-  visible.value = false;
+  showPopover.value = false;
 };
 
 const handleMouseUp = (e: MouseEvent) => {
@@ -49,12 +53,25 @@ const handleMouseUp = (e: MouseEvent) => {
   const dy = Math.abs(e.pageY - startY.value);
 
   if (dx <= 1 && dy <= 1) {
-    visible.value = !_visible.value;
-    shouldRotate.value = !shouldRotate.value;
+    showPopover.value = !_showPopover.value;
   } else {
-    visible.value = _visible.value;
+    showPopover.value = _showPopover.value;
   }
 };
+
+//点击空白位置事件
+const onClickOutside = (e: MouseEvent) => {
+  if (
+    showPopover.value &&
+    !(popoverRef.value as any).popperRef?.contentRef.contains(e.target)
+  ) {
+    showPopover.value = false;
+  }
+};
+
+onUnmounted(() => {
+  window.removeEventListener("mouseup", handleMouseUp);
+});
 </script>
 <style scoped lang="scss">
 .menu-icon {
