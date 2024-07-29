@@ -1,7 +1,7 @@
 <template>
   <div
     v-drag
-    class="absolute translate-x-20 translate-y-20"
+    class="absolute translate-x-20 translate-y-20 z-50"
     @mousedown="handleMouseDown"
     @mouseup="handleMouseUp"
     v-click-outside="onClickOutside"
@@ -16,7 +16,7 @@
       <template #reference>
         <div
           ref="icon"
-          class="w-12 h-12 bg-white rounded-full flex justify-center items-center shadow-lg z-50 cursor-pointer"
+          class="w-12 h-12 bg-white rounded-full flex justify-center items-center shadow-lg cursor-pointer"
         >
           <svg-icon
             iconName="icon-menu"

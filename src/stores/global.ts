@@ -4,7 +4,7 @@ interface GlobalState {
   activeIndex: string;
 }
 
-export const useGlobalStore = defineStore("global", {
+export const useGlobalStore = defineStore("my_vue3_global", {
   state: (): GlobalState => ({
     activeIndex: "/",
   }),

@@ -38,21 +38,29 @@ watchEffect(() => {
   activeIndex.value = globalStore.activeIndex;
 });
 
-//导航菜单配置项
+/**
+ * 导航菜单配置项
+ * {
+  title: string, // 菜单标题 没有值则默认为当前文件夹名
+  index: string, // 菜单路径
+  menuOrder: number, // 菜单排序  没有值则默认沉底
+  children?: [],
+}
+ */
 const menuList = routes
   .map((item) => {
     return {
-      title: item.meta?.title,
+      title: item.meta?.title || extractTitle(item.path),
       index: item.path,
-      menuOrder: item.meta?.menuOrder as number,
+      menuOrder: (item.meta?.menuOrder as number) || 99,
       children:
         item.children && item.children.length > 0
           ? item.children
               .map((child) => {
                 return {
-                  title: child.meta?.title,
+                  title: child.meta?.title || extractTitle(child.path),
                   index: child.path,
-                  menuOrder: child.meta?.menuOrder as number,
+                  menuOrder: (child.meta?.menuOrder as number) || 99,
                 };
               })
               .sort((a, b) => (a.menuOrder || 0) - (b.menuOrder || 0))
@@ -60,6 +68,12 @@ const menuList = routes
     };
   })
   .sort((a, b) => (a.menuOrder || 0) - (b.menuOrder || 0));
+
+//获取路径中最后一个字符串
+function extractTitle(path: string): string {
+  const parts = path.split("/").filter(Boolean);
+  return parts.pop() || path;
+}
 </script>
 <style scoped lang="scss">
 :deep(.el-menu) {
