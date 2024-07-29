@@ -14,6 +14,8 @@ declare module 'vue' {
     ElPopover: typeof import('element-plus/es')['ElPopover']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     Floating: typeof import('./components/Floating.vue')['default']
+    Hello: typeof import('./components/Hello.vue')['default']
+    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     IEpEdit: typeof import('~icons/ep/edit')['default']
     Menu: typeof import('./components/Menu.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

@@ -1,6 +1,6 @@
 <template>
   <Floating></Floating>
-  <RouterView />
+  <RouterView class="h-screen" />
 </template>
 
 <script setup lang="ts">
