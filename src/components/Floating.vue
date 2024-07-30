@@ -16,7 +16,7 @@
       <template #reference>
         <div
           ref="icon"
-          class="w-12 h-12 bg-white rounded-full flex justify-center items-center shadow-lg cursor-pointer"
+          class="w-12 h-12 bg-white dark:bg-black rounded-full flex justify-center items-center shadow-lg cursor-pointer"
         >
           <svg-icon
             iconName="icon-menu"
