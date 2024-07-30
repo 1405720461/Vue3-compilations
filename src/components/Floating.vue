@@ -2,8 +2,6 @@
   <div
     v-drag
     class="absolute translate-x-20 translate-y-20 z-50"
-    @mousedown="handleMouseDown"
-    @mouseup="handleMouseUp"
     v-click-outside="onClickOutside"
   >
     <el-popover
@@ -16,7 +14,9 @@
       <template #reference>
         <div
           ref="icon"
-          class="w-12 h-12 bg-white dark:bg-black rounded-full flex justify-center items-center shadow-lg cursor-pointer"
+          class="w-12 h-12 bg-white rounded-full flex justify-center items-center shadow-lg cursor-pointer"
+          @mousedown="handleMouseDown"
+          @click="handleClick"
         >
           <svg-icon
             iconName="icon-menu"
@@ -25,15 +25,28 @@
           ></svg-icon>
         </div>
       </template>
+      <div class="mb-2">
+        <el-button circle @click="changeTheme">
+          <svg-icon
+            :iconName="isDark ? 'icon-dark' : 'icon-light'"
+            className="theme-icon"
+            :color="isDark ? '#6f6cff' : '#f9c626'"
+          ></svg-icon>
+        </el-button>
+      </div>
       <Menu></Menu>
     </el-popover>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onUnmounted } from "vue";
 import { ClickOutside as vClickOutside } from "element-plus";
 import Menu from "./Menu.vue";
+import { useGlobalStore } from "@/stores";
+import { useThemeToggle } from "@/hooks/useThemeToggle";
+
+const globalStore = useGlobalStore();
+const isDark = computed(() => globalStore.isDark);
 
 const popoverRef = ref(null);
 const showPopover = ref(false); //菜单状态
@@ -48,10 +61,9 @@ const handleMouseDown = (e: MouseEvent) => {
   showPopover.value = false;
 };
 
-const handleMouseUp = (e: MouseEvent) => {
+const handleClick = (e: MouseEvent) => {
   const dx = Math.abs(e.pageX - startX.value);
   const dy = Math.abs(e.pageY - startY.value);
-
   if (dx <= 1 && dy <= 1) {
     showPopover.value = !_showPopover.value;
   } else {
@@ -69,13 +81,18 @@ const onClickOutside = (e: MouseEvent) => {
   }
 };
 
-onUnmounted(() => {
-  window.removeEventListener("mouseup", handleMouseUp);
-});
+//切换主题按钮
+const changeTheme = (e: MouseEvent) => {
+  useThemeToggle(e);
+};
 </script>
 <style scoped lang="scss">
 .menu-icon {
   transition: all 0.5s;
+}
+.theme-icon {
+  width: 1.3em;
+  height: 1.3em;
 }
 .rotate {
   transform: rotate(90deg);

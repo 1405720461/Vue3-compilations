@@ -11,6 +11,8 @@
 | 下       | `icon-down`        |
 | 右       | `icon-right`       |
 | 上       | `icon-up`          |
+| 太阳     | `icon-light`       |
+| 月亮     | `icon-dark`        |
 | ...      | ...                |
 
 ## 使用方法

@@ -15,8 +15,8 @@ export const useGlobalStore = defineStore("my_vue3_global", {
     initializeStore() {
       const storedIsDark = JSON.parse(
         localStorage.getItem("my_vue3_global") || "{}"
-      );
-      document.documentElement.classList.toggle("dark", storedIsDark.isDark);
+      )?.isDark;
+      document.documentElement.classList.toggle("dark", !!storedIsDark);
     },
     setActiveIndex(index: string) {
       this.activeIndex = index;

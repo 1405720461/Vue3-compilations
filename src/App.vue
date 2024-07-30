@@ -4,7 +4,10 @@
 </template>
 
 <script setup lang="ts">
-import Floating from "@/components/Floating.vue";
+import { defineAsyncComponent } from "vue";
+const Floating = defineAsyncComponent(
+  () => import("@/components/Floating.vue")
+);
 </script>
 
 <style scoped></style>
