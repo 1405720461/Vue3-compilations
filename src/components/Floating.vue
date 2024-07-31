@@ -14,7 +14,7 @@
       <template #reference>
         <div
           ref="icon"
-          class="w-12 h-12 bg-white rounded-full flex justify-center items-center shadow-lg cursor-pointer"
+          class="icon-box w-12 h-12 bg-white rounded-full flex justify-center items-center shadow-lg cursor-pointer"
           @mousedown="handleMouseDown"
           @click="handleClick"
         >

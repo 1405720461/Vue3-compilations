@@ -1,5 +1,7 @@
-import "./assets/main.css";
 import "./assets/iconfont/iconfont.js";
+import "element-plus/theme-chalk/dark/css-vars.css";
+import "./styles/main.css";
+import "./styles/element/index.css";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
