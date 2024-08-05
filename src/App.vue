@@ -1,6 +1,8 @@
 <template>
-  <Floating></Floating>
-  <RouterView class="h-screen" />
+  <div class="h-screen bg-white dark:bg-slate-700 dark:text-white">
+    <Floating></Floating>
+    <router-view class="h-full" />
+  </div>
 </template>
 
 <script setup lang="ts">

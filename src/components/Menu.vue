@@ -1,5 +1,5 @@
 <template>
-  <div class="select-none">
+  <el-scrollbar :max-height="maxHeight">
     <el-menu
       router
       mode="vertical"
@@ -24,13 +24,21 @@
         </el-menu-item>
       </template>
     </el-menu>
-  </div>
+  </el-scrollbar>
 </template>
 
 <script setup lang="ts">
 import routes from "@/utils/routes";
 import { useGlobalStore } from "@/stores";
 const globalStore = useGlobalStore();
+
+const props = defineProps({
+  //菜单高度
+  maxHeight: {
+    type: String,
+    default: "100%",
+  },
+});
 
 const activeIndex = ref(globalStore.activeIndex);
 

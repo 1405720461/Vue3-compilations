@@ -14,7 +14,7 @@
       <template #reference>
         <div
           ref="icon"
-          class="icon-box w-12 h-12 bg-white rounded-full flex justify-center items-center shadow-lg cursor-pointer"
+          class="w-12 h-12 bg-white dark:bg-[#1d1e1f] rounded-full flex justify-center items-center drop-shadow-[5px_5px_10px_rgba(0,0,0,0.2)] dark:drop-shadow-[5px_5px_10px_rgba(0,255,255,0.5)] cursor-pointer"
           @mousedown="handleMouseDown"
           @click="handleClick"
         >
@@ -22,6 +22,7 @@
             iconName="icon-menu"
             :class="{ rotate: showPopover }"
             className="menu-icon"
+            :color="isDark ? '#fff' : '#000'"
           ></svg-icon>
         </div>
       </template>
@@ -34,7 +35,7 @@
           ></svg-icon>
         </el-button>
       </div>
-      <Menu></Menu>
+      <Menu :maxHeight="'250px'"></Menu>
     </el-popover>
   </div>
 </template>

@@ -1,4 +1,4 @@
 export default {
-  title: "sub",
+  title: "share",
   menuOrder: 1,
 };

@@ -1,7 +1,5 @@
 <template>
-  <div class="h-screen bg-white dark:bg-slate-700 dark:text-white">
-    <h1>home</h1>
-  </div>
+  <h1>home</h1>
 </template>
 
 <script setup lang="ts">
