@@ -1,4 +1,4 @@
 export default {
   title: "demo",
-  menuOrder: 2,
+  menuOrder: 1,
 };
