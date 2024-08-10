@@ -7,9 +7,13 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent } from "vue";
-const Floating = defineAsyncComponent(
-  () => import("@/components/Floating.vue")
-);
+import ErrorPlaceholder from "@/components/ErrorPlaceholder.vue";
+
+const Floating = defineAsyncComponent({
+  loader: () => import("@/components/Floating.vue"),
+  errorComponent: ErrorPlaceholder,
+  timeout: 3000,
+});
 </script>
 
 <style scoped></style>

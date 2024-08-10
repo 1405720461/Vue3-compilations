@@ -35,7 +35,6 @@ const buildRoutes = (
 
     routeMap[path] = route;
   });
-
   // 遍历路由映射的键（路径）
   Object.keys(routeMap).forEach((path) => {
     if (path === "/") {
@@ -49,6 +48,7 @@ const buildRoutes = (
           routeMap[parentPath].children?.push(routeMap[path]);
         }
       } else {
+        console.log(routeMap[path]);
         routes.push(routeMap[path]);
       }
     }
@@ -59,4 +59,5 @@ const buildRoutes = (
 
 const routes = buildRoutes(pageComps);
 
+console.log(routes);
 export default routes;
