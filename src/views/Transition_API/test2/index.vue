@@ -72,22 +72,17 @@ const closePopup = () => {
 </script>
 
 <style scoped lang="scss">
-.fade-enter-from {
-  opacity: 0;
-}
-.fade-enter-active {
-  transition: opacity 0.1s;
-}
-.fade-enter-to {
-  opacity: 1;
-}
-.fade-leave-from {
-  opacity: 0;
-}
-.fade-leave-active {
-  transition: opacity 0.1s;
-}
+.fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.1s;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
 }
 </style>

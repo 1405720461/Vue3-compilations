@@ -1,4 +1,4 @@
 export default {
-    title: "案例",
+    title: "Yjs",
     menuOrder: 4,
 };
