@@ -5,6 +5,7 @@
       mode="vertical"
       :default-active="activeIndex"
       close-on-click-outside
+      @select="handleSelect"
     >
       <template v-for="item in menuList" :key="item.index">
         <el-sub-menu v-if="item.children" :index="item.index + ''">
@@ -39,6 +40,12 @@ const props = defineProps({
     default: "100%",
   },
 });
+
+const emit = defineEmits(["closeMenu"]);
+//点击菜单项，关闭全局菜单按钮
+const handleSelect = (index: string) => {
+  emit("closeMenu", index);
+};
 
 const activeIndex = ref(globalStore.activeIndex);
 
@@ -78,10 +85,10 @@ const menuList = routes
   .sort((a, b) => (a.menuOrder || 0) - (b.menuOrder || 0));
 
 //获取路径中最后一个字符串
-function extractTitle(path: string): string {
+const extractTitle = (path: string): string => {
   const parts = path.split("/").filter(Boolean);
   return parts.pop() || path;
-}
+};
 </script>
 <style scoped lang="scss">
 :deep(.el-menu) {

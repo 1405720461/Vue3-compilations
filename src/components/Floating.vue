@@ -35,7 +35,7 @@
           ></svg-icon>
         </el-button>
       </div>
-      <Menu :maxHeight="'250px'"></Menu>
+      <Menu :maxHeight="'250px'" @closeMenu="closeMenu"></Menu>
     </el-popover>
   </div>
 </template>
@@ -80,6 +80,11 @@ const onClickOutside = (e: MouseEvent) => {
   ) {
     showPopover.value = false;
   }
+};
+
+//点击路由菜单项关闭菜单
+const closeMenu = (index: string) => {
+  showPopover.value = false;
 };
 
 //切换主题按钮

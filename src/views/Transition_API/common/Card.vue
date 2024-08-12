@@ -1,7 +1,6 @@
 <template>
   <div
-    class="popup w-[54%] min-w-[80px] max-w-[465px] relative rounded-lg pt-[20px] pb-[14px] shadow-[3px_3px_8px_rgba(0,0,0,0.3)] dark:shadow-[3px_3px_8px_rgba(255,255,255,0.3)]"
-    v-show="cardVisible"
+    class="popup w-[54%] min-w-[80px] max-w-[465px] absolute rounded-lg pt-[20px] pb-[14px] shadow-[3px_3px_8px_rgba(0,0,0,0.3)] dark:shadow-[3px_3px_8px_rgba(255,255,255,0.3)]"
     :style="{
       background: `linear-gradient(${option?.backgroundColor}, ${option?.backgroundColor})`,
     }"
@@ -36,7 +35,6 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  cardVisible: Boolean,
   option: Object,
 });
 const emit = defineEmits(["close"]);

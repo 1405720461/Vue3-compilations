@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center items-center w-full select-none">
+  <div class="flex justify-center items-center w-full select-none relative">
     <ul
-      class="flex flex-wrap justify-evenly gap-[40px] w-full max-w-screen-lg relative"
+      class="flex flex-wrap justify-evenly gap-[40px] w-full max-w-screen-lg absolute"
       v-show="!cardVisible"
     >
       <li
@@ -9,9 +9,6 @@
         v-for="(item, index) in Options"
         :key="index"
         :style="{
-          ...(selectIndex === index
-            ? { viewTransitionName: 'popup-transition' }
-            : null),
           backgroundColor: item.backgroundColor,
         }"
         @click="handleClick(index)"
@@ -44,11 +41,14 @@
         </div>
       </li>
     </ul>
-    <Card v-show="cardVisible" :option="option" @close="closePopup"> </Card>
+    <transition name="fade">
+      <Card v-show="cardVisible" :option="option" @close="closePopup"> </Card>
+    </transition>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import Card from "../common/Card.vue";
 import Options from "../common/Options.json";
 
@@ -60,38 +60,34 @@ const option = ref({});
 const handleClick = (index: number) => {
   selectIndex.value = index;
   option.value = Options[index];
-  // @ts-ignore
-  const transition = document.startViewTransition(() => {
-    cardVisible.value = true;
-  });
+  cardVisible.value = true;
 };
 
 //关闭卡片
 const closePopup = () => {
-  // @ts-ignore
-  const transition = document.startViewTransition(() => {
-    cardVisible.value = false;
-  });
-  transition.finished.then(() => {
-    selectIndex.value = -1;
-    option.value = {};
-  });
+  cardVisible.value = false;
+  selectIndex.value = -1;
+  option.value = {};
 };
 </script>
 
-<style scoped>
-::view-transition-image-pair(root) {
-  isolation: auto;
+<style scoped lang="scss">
+.fade-enter-from {
+  opacity: 0;
 }
-
-::view-transition-image-pair(popup-transition) {
-  isolation: auto;
+.fade-enter-active {
+  transition: opacity 0.1s;
 }
-
-::view-transition-old(popup-transition),
-::view-transition-new(popup-transition) {
-  animation-duration: 0.1s;
+.fade-enter-to {
+  opacity: 1;
+}
+.fade-leave-from {
+  opacity: 0;
+}
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
-
-<style scoped lang="scss"></style>
