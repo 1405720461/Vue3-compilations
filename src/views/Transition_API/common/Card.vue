@@ -16,10 +16,14 @@
       v-for="(value, key) in option?.property"
       :key="key"
     >
-      <div class="flex-[0_0_auto] w-[64px] px-[5px] text-[16px] font-bold">
+      <div
+        class="flex-[0_0_auto] w-[64px] px-[5px] text-[16px] font-bold dark:drop-shadow-[3px_3px_5px_rgba(0,0,0,0.5)]"
+      >
         {{ key }}:
       </div>
-      <div class="flex-auto text-[15px] px-[5px] whitespace-normal break-all">
+      <div
+        class="flex-auto text-[15px] px-[5px] whitespace-normal break-all dark:drop-shadow-[3px_3px_5px_rgba(0,0,0,0.5)]"
+      >
         {{ value }}
       </div>
     </div>
