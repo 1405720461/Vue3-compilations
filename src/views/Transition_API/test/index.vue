@@ -27,11 +27,13 @@
           :key="key"
           :class="key === 'Info' ? 'hidden' : ''"
         >
-          <div class="flex-[0_0_auto] w-[54px] px-[3px] text-[14px] font-bold">
+          <div
+            class="flex-[0_0_auto] w-[54px] px-[3px] text-[14px] font-bold dark:drop-shadow-[3px_3px_5px_rgba(0,0,0,0.5)]"
+          >
             {{ key }}:
           </div>
           <div
-            class="flex-auto text-[13px] px-[3px] whitespace-normal break-all"
+            class="flex-auto text-[13px] px-[3px] whitespace-normal break-all dark:drop-shadow-[3px_3px_5px_rgba(0,0,0,0.5)]"
           >
             {{ value }}
           </div>

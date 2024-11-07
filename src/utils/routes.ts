@@ -48,7 +48,6 @@ const buildRoutes = (
           routeMap[parentPath].children?.push(routeMap[path]);
         }
       } else {
-        console.log(routeMap[path]);
         routes.push(routeMap[path]);
       }
     }
@@ -59,5 +58,4 @@ const buildRoutes = (
 
 const routes = buildRoutes(pageComps);
 
-console.log(routes);
 export default routes;

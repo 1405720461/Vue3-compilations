@@ -1,5 +1,41 @@
 [
   {
+    "icon": "https://ui.tailwind.org.cn/favicon.ico",
+    "backgroundColor": "#38bdf8",
+    "property": {
+      "Name": "Tailwind UI",
+      "Type": "Web",
+      "Vue": "Vue 2.x & Vue 3.x",
+      "Docs": "https://ui.tailwind.org.cn/?ref=top",
+      "Info": "A set of components based on Tailwind CSS, suitable for building beautiful interfaces quickly."
+    },
+    "stars": "★★★★☆"
+  },
+  {
+    "icon": "https://www.naiveui.com/assets/naivelogo-BdDVTUmz.svg",
+    "backgroundColor": "#e7f5ee",
+    "property": {
+      "Name": "Naive UI",
+      "Type": "Web",
+      "Vue": "Vue 3.x",
+      "Docs": "https://www.naiveui.com/zh-CN/os-theme",
+      "Info": "A unique styled Vue 3 component library, aiming to provide simple and easy-to-use components."
+    },
+    "stars": "★★★★★"
+  },
+  {
+    "icon": "https://avatars.githubusercontent.com/u/72015883?v=4",
+    "backgroundColor": "#a0cfff",
+    "property": {
+      "Name": "Element Plus",
+      "Type": "Web & Mobile",
+      "Vue": "Vue 3.x",
+      "Docs": "https://element-plus.org/zh-CN/",
+      "Info": "基于 Vue 3，面向设计师和开发者的组件库"
+    },
+    "stars": "★★★★☆"
+  },
+  {
     "icon": "https://linpengteng.github.io/resource/vue-library/ant-design-vue.svg",
     "backgroundColor": "#e5cdff",
     "property": {
@@ -21,7 +57,7 @@
       "Docs": "https://varlet.gitee.io/varlet-ui/#/zh-CN/index",
       "Info": "Varlet is a Material design mobile component library developed based on Vue3 by partners in the community."
     },
-    "stars": "★★★★"
+    "stars": "★★★★☆"
   },
   {
     "icon": "https://linpengteng.github.io/resource/vue-library/vant.png",

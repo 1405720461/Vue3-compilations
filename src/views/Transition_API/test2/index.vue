@@ -1,6 +1,8 @@
 <template>
   <div class="flex justify-center items-center w-full select-none relative">
-    <ul
+    <TransitionGroup
+      name="fade"
+      tag="ul"
       class="flex flex-wrap justify-evenly gap-[40px] w-full max-w-screen-lg absolute"
       v-show="!cardVisible"
     >
@@ -24,11 +26,13 @@
           :key="key"
           :class="key === 'Info' ? 'hidden' : ''"
         >
-          <div class="flex-[0_0_auto] w-[54px] px-[3px] text-[14px] font-bold">
+          <div
+            class="flex-[0_0_auto] w-[54px] px-[3px] text-[14px] font-bold dark:drop-shadow-[3px_3px_5px_rgba(0,0,0,0.5)]"
+          >
             {{ key }}:
           </div>
           <div
-            class="flex-auto text-[13px] px-[3px] whitespace-normal break-all"
+            class="flex-auto text-[13px] px-[3px] whitespace-normal break-all dark:drop-shadow-[3px_3px_5px_rgba(0,0,0,0.5)]"
           >
             {{ value }}
           </div>
@@ -40,10 +44,10 @@
           {{ item.stars }}
         </div>
       </li>
-    </ul>
-    <transition name="fade">
-      <Card v-show="cardVisible" :option="option" @close="closePopup"> </Card>
-    </transition>
+    </TransitionGroup>
+    <Transition name="fade">
+      <Card v-if="cardVisible" :option="option" @close="closePopup"> </Card>
+    </Transition>
   </div>
 </template>
 
@@ -78,7 +82,7 @@ const closePopup = () => {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.1s;
+  transition: all 0.2s;
 }
 
 .fade-enter-to,
